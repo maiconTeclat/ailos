@@ -8,7 +8,7 @@ export class UtilsService {
   constructor() { }
 
   validateCpf(cpf: string): { name: string; isValid: boolean } {
-    const cleanCpf = cpf.replace(/\D/g, ''); // Remove non-numeric characters
+    const cleanCpf = cpf.replace(/\D/g, '');
 
     if (cleanCpf.length !== 11) {
       return { name: '', isValid: false };

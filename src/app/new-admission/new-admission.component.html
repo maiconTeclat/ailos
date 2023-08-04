@@ -10,6 +10,7 @@
             <label class="form-label label" for="cpfInput">CPF</label>
             <input placeholder="000.000.000-00" class="form-control" type="text" id="cpfInput" mask="000.000.000-00"
                 [(ngModel)]="cpf" (ngModelChange)="onCpfInputChange($event)" />
+            <p class="invalid-text" *ngIf="cpfValidationResult && !cpfValidationResult?.isValid">CPF inválido!</p>
         </div>
         <div class="col-md-2">
             <button class="button-validate" (click)="onValidateCpf()">
