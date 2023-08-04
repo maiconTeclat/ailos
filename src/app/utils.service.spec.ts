@@ -44,7 +44,7 @@ describe('CpfService', () => {
     expect(result.name).toEqual('');
   });
 
-  it('should return valid and the correct name for a valid CPF', () => {
+  it('should return a valid CPF', () => {
     const result = service.validateCpf('12345678909');
     expect(result.isValid).toBeTrue();
   });
