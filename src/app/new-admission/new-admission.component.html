@@ -1,0 +1,47 @@
+<app-wizard-steps></app-wizard-steps>
+<div class="row">
+    <p class="texto-info">Informe o CPF do futuro cooperado (a)</p>
+    <small class="text-secondary">Se necessário, você poderá duplicar uam conta existente ou pausar e retornar este
+        cadastro futuramente.</small>
+    <br>
+    <small class="text-secondary">Digite apenas os números (sem pontos ou traços)</small>
+    <div class="row">
+        <div class="col-md-2 box-cpf">
+            <label class="form-label label" for="cpfInput">CPF</label>
+            <input placeholder="000.000.000-00" class="form-control" type="text" id="cpfInput" mask="000.000.000-00"
+                [(ngModel)]="cpf" (ngModelChange)="onCpfInputChange($event)" />
+        </div>
+        <div class="col-md-2">
+            <button class="button-validate" (click)="onValidateCpf()">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span *ngIf="loading" class="visually-hidden">Loading...</span>
+                <span *ngIf="!loading">Consultar por CPF</span>
+            </button>
+        </div>
+
+
+    </div>
+
+    <div class="container box-information" *ngIf="cpfValidationResult?.isValid">
+        <div class="row">
+            <div class="col-12">
+                <p class="box-information-title">Situação cadastral do CPF</p>
+                <p class="text-muted sub-text">Consulta na Receita Federal</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <i class="bi bi-person-fill icon-person"></i>
+                <p class="name">Nome</p>
+                <p class="name-info">{{ cpfValidationResult?.name }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <i class="bi bi-check-circle icon-check"></i>
+                <p class="name">Situação do CPF</p>
+                <p class="name-info">Regular</p>
+            </div>
+        </div>
+    </div>
+</div>
